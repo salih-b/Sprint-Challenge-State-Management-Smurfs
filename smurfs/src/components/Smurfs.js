@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import Smurf from './Smurf';
 import {addingSmurfs} from '../actions'
+import Axios from 'axios';
 
 const Smurfs = props => {
 
@@ -23,7 +24,7 @@ const Smurfs = props => {
 const handleSubmit = e =>{
     e.preventDefault();
     props.addingSmurfs(newNameText,newAgeText,newHeightText)
-    
+
 }
 
 console.log("this is props in Smurfs",props);
@@ -51,6 +52,7 @@ console.log("this is props in Smurfs",props);
             value={newHeightText}
             onChange={handleHeightChanges}
             />
+
             {props.smurfs.map(smurf=>(
                 <Smurf smurf={smurf}/>
     ))}
@@ -59,9 +61,10 @@ console.log("this is props in Smurfs",props);
 };
 
 const mapStateToProps = state => {
+    console.log(state);
     return {
         smurfs: state.smurfs, 
-        adding: state.isLoading, 
+        adding: state.adding, 
         error:state.error
     }
 }

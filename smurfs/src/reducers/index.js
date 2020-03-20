@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 
-
 const initialState = {
     smurfs: [], 
     adding: false, 
@@ -16,7 +15,12 @@ export const reducer = (state = initialState, action) =>{
                 ...state, 
                 adding:true
             }
-
+        case 'ADDING_SMURFS_SUCCESS':
+            return{
+                ...state, 
+                adding:false,
+                smurfs: action.payload
+            }
         default:
             return state;
     }

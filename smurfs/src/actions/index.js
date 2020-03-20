@@ -16,3 +16,6 @@ axios.post('http://localhost:3333/smurfs', {
 )
 .catch(err =>console.log("WE GOT AN", err));
     };
+
+export const renderSmurfs = (info) => {
+    return {type:'RENDER_FIRST', payload:info }};
